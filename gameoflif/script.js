@@ -208,3 +208,6 @@ console.log(grassArr);
         function Reload(){
                 window.location.reload()
         }
+        function  Start(){
+                window.location.href="index.html"
+        }
