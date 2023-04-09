@@ -19,6 +19,7 @@ class Predator {
             [this.x + 1, this.y + 1]
         ];
     }
+    ////////
 
     chooseCell(char, char1, char2,char3) {
         this.getNewCoordinates()
