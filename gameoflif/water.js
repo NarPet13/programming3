@@ -1,7 +1,8 @@
-class Water{
+let LivingCreature = require("./LivingCreature")
+
+module.exports =class Water extends LivingCreature{
     constructor(x,y){
-        this.x=x
-        this.y=y
+       super(x,y)
    this.energy=10
     }
     mul() {
@@ -23,7 +24,7 @@ class Water{
     }
   mool(){
     if(this.energy=10){
-        this.mul
+        this.mul()
     }
   }
 }
