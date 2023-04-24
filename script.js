@@ -5,8 +5,7 @@ var side = 30
 
 
 function setup() {
-       frameRate (5)
-        createCanvas(25 * side, 25 * side)
+        createCanvas(20 * side, 20 * side)
         
 
 }
@@ -17,8 +16,8 @@ function nkar(matrix) {
         for (let y = 0; y < matrix.length; y++) {
                 for (let x = 0; x < matrix[y].length; x++) {
 
-                        var face = side - side * 0.1
-                        textSize(face)
+                        // var face = side - side * 0.1
+                        // textSize(face)
             
 
                         if (matrix[y][x] == 1) {
@@ -75,33 +74,10 @@ function nkar(matrix) {
 
 
 
-        //         for (let i in grassArr) {
-        //                 grassArr[i].mul()
-        //         }
+       
 
 
-        //         for(let i in grassEaterArr){
-        //                 grassEaterArr[i].eat()
-        //         }  
-        //         for(let i in badgrassArr){
-        //                 badgrassArr[i].mul()
-        //         }
-                
-        //         for(let i in predatorArr){
-        //                 predatorArr[i].eat()
-        //         }
-        //           for(let i in manArr){
-        //         manArr[i].eat()
-        //           } 
-        //           for(let i in waterGenArr){
-        //                 waterGenArr[i].eat()
-        //                   }
-        //   for(let i in waterArr){
-        //         waterArr[i].mool()
-        //   }
-
-
-
-
-          }
-          io.socket.emit('send matrix',matrix)
+          
+         
+}
+socket.on('send matrix',nkar)
