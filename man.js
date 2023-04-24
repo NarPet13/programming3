@@ -7,7 +7,7 @@ module.exports =class Man extends LivingCreature{
         this.directions = [];
     }
 
-
+    
     getNewCoordinates() {
         this.directions = [
             
@@ -147,3 +147,4 @@ module.exports =class Man extends LivingCreature{
 
 
 }
+//end

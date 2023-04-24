@@ -48,7 +48,7 @@ chooseCell(char){
                    badgrassArr.push(bgrass)
    
    
-                   this.multiply=0
+                    this.multiply=0
    
    
         }

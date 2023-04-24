@@ -13,7 +13,7 @@ module.exports =class Water extends LivingCreature{
             let newX = newCell[0]
             let newY = newCell[1]
 
-            matrix[newY][newX] = 1
+              matrix[newY][newX] = 1
 
             let wot = new Grass(newX, newY)
 

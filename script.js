@@ -80,4 +80,4 @@ function nkar(matrix) {
           
          
 }
-socket.on('send matrix',nkar)
+socket.on('send matrix',nkar)  

@@ -9,6 +9,8 @@ module.exports =class Grass extends LivingCreature{
 
 
 
+
+
     mul(){
          this.multiply++
           let emptyCell = this.chooseCell(0)

@@ -132,7 +132,7 @@ function createobject() {
                         //         manArr.push(new Man(x,y))
                         //     }
                         else if (matrix[y][x] == 6) {
-                                let watA = new Watergenerator(x, y)
+                                  let watA = new Watergenerator(x, y)
                                 waterGenArr.push(watA)
                         }
 

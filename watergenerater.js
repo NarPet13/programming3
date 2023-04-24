@@ -12,7 +12,7 @@ module.exports =class Watergenerator extends LivingCreature{
     getNewCoordinates() {
         this.directions = [
             [this.x - 1, this.y - 1],
-        
+          
             [this.x + 1, this.y - 1],
           
           

@@ -156,7 +156,7 @@ module.exports =class Predator extends LivingCreature{
 
         if (newCell) {
             let newX = newCell[0]
-            let newY = newCell[1]
+             let newY = newCell[1]
 
             matrix[newY][newX] = 4
             matrix[this.y][this.x] = 0
