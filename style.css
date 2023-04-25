@@ -1,0 +1,19 @@
+button{
+    border-radius: 10px;
+   border: 10px solid blue;
+}
+button:after{
+    margin:6%;
+    border-color: red;
+}
+button:before{
+    color:green;
+    
+ 
+}
+button:hover{
+
+background-image: url("image.jpg");
+
+}
+

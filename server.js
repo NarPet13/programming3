@@ -136,10 +136,10 @@ function createobject() {
                                 waterGenArr.push(watA)
                         }
 
-                        //     else if(matrix[y][x]==7){
-                        //         let watr = new Water(x,y)
-                        //         waterArr.push(watr)
-                        //     }
+                            else if(matrix[y][x]==7){
+                                let watr = new Water(x,y)
+                                waterArr.push(watr)
+                            }
                 }
         }
 
