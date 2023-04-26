@@ -83,3 +83,4 @@ function nkar(matrix) {
 
 
 socket.on('send matrix',nkar)  
+

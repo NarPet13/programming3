@@ -13,7 +13,43 @@ button:before{
 }
 button:hover{
 
-background-image: url("image.jpg");
+background-image: url("img.jpg");
 
 }
 
+
+@keyframes example {
+    0%   {background-color: red;}
+    25%  {background-color: yellow;}
+    50%  {background-color: blue;}
+    100% {background-color: green;}
+  }
+
+  @keyframes example {
+    0%   {border-color: red;}
+    25%  {border-color: yellow;}
+    50%  {border-color: blue;}
+    100% {border-color: green;}
+  }
+
+  canvas{
+    margin-left: 30%;
+    animation: infinite;
+    border: 10px double rgb(10, 32, 10);
+        width: 100px;
+        height: 100px;
+        animation-name: example;
+        animation-duration: 4s;
+      
+    }
+    
+    canvas:hover{
+       border-radius: 10px;
+       border-color: gold;
+       border-collapse: separate;
+    }
+
+
+    body{
+        background-image: url("img.jpg");
+    }

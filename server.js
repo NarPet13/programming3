@@ -123,10 +123,10 @@ function createobject() {
                                 let bgress = new Badgrass(x, y)
                                 badgrassArr.push(bgress)
                         }
-                        else if (matrix[y][x] == 4) {
-                                let mones = new Predator(x, y)
-                                predatorArr.push(mones)
-                        }
+                        // else if (matrix[y][x] == 4) {
+                        //         let mones = new Predator(x, y)
+                        //         predatorArr.push(mones)
+                        // }
                         //   else if(matrix[y][x]==5){
 
                         //         manArr.push(new Man(x,y))
