@@ -1,35 +1,15 @@
-button{
-    border-radius: 10px;
-   border: 10px solid blue;
-}
-button:after{
-    margin:6%;
-    border-color: red;
-}
-button:before{
-    color:green;
-    
- 
-}
-button:hover{
 
-background-image: url("img.jpg");
-
-}
-
-
-@keyframes example {
-    0%   {background-color: red;}
-    25%  {background-color: yellow;}
-    50%  {background-color: blue;}
-    100% {background-color: green;}
+@keyframes am {
+    0%   {border-color: rgb(255, 208, 0);}
+    25%  {border-color: rgb(238, 255, 0);}
+    50%  {border-color: rgb(208, 255, 0);}
+    100% {border-color: rgb(255, 239, 8);}
   }
-
-  @keyframes example {
-    0%   {border-color: red;}
-    25%  {border-color: yellow;}
-    50%  {border-color: blue;}
-    100% {border-color: green;}
+  @keyframes an {
+    0%   {border-color: rgb(255, 208, 0);}
+    25%  {border-color: rgb(238, 255, 0);}
+    50%  {border-color: rgb(208, 255, 0);}
+    100% {border-color: rgb(255, 239, 8);}
   }
 
   canvas{
@@ -38,7 +18,7 @@ background-image: url("img.jpg");
     border: 10px double rgb(10, 32, 10);
         width: 100px;
         height: 100px;
-        animation-name: example;
+        animation-name: an;
         animation-duration: 4s;
       
     }
@@ -52,4 +32,21 @@ background-image: url("img.jpg");
 
     body{
         background-image: url("img.jpg");
+        background-size: 120%;
+    }
+
+    button{
+        border-radius: 10px;
+       border: 3px solid rgb(255, 238, 0);
+       width: 220px;
+       height: 34px;
+    }
+    
+        
+     
+    
+    button:hover{
+    animation: am 4s ;
+    
+        
     }

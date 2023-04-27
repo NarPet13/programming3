@@ -178,8 +178,12 @@ function game() {
                 waterArr[i].mool()
         }
 
-        io.sockets.emit("send matrix", matrix)
+        
 
 }
 
 setInterval(game, 200)
+
+
+
+io.sockets.emit("send matrix", matrix)
