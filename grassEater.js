@@ -122,7 +122,9 @@
             if (this.energy > 40) {
                 this.mul()
             }
-
+else if(this.energy==50){
+this.die()
+}
         } 
         else{
             this.move()

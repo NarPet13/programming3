@@ -1,15 +1,15 @@
 
 @keyframes am {
     0%   {border-color: rgb(255, 208, 0);}
-    25%  {border-color: rgb(238, 255, 0);}
+    25%  {border-color: rgb(0, 255, 64);}
     50%  {border-color: rgb(208, 255, 0);}
-    100% {border-color: rgb(255, 239, 8);}
+    100% {border-color: rgb(27, 255, 95);}
   }
   @keyframes an {
     0%   {border-color: rgb(255, 208, 0);}
-    25%  {border-color: rgb(238, 255, 0);}
+    25%  {border-color: rgb(85, 255, 0);}
     50%  {border-color: rgb(208, 255, 0);}
-    100% {border-color: rgb(255, 239, 8);}
+    100% {border-color: rgb(8, 255, 24);}
   }
 
   canvas{
@@ -31,7 +31,7 @@
 
 
     body{
-        background-image: url("img.jpg");
+        background-color:aqua;
         background-size: cover;
     }
 

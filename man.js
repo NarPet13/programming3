@@ -85,10 +85,10 @@ module.exports =class Man extends LivingCreature{
                     break
                 }
             }
-            for (let i in monaa) {
-                if (newX == monaa[i].x && newY == monaa[i].y) {
+            for (let i in manArr) {
+                if (newX ==manArr[i].x && newY == manArr[i].y) {
                   
-                    monaa.splice(i, 1)
+                    manArr.splice(i, 1)
         
                     break;
                 }
@@ -138,9 +138,9 @@ module.exports =class Man extends LivingCreature{
     die() {
         matrix[this.y][this.x] = 0
 
-        for (let i in mana) {
-            if (this.x == mana[i].x && this.y == mana[i].y) {
-                mana.splice(i, 1)
+        for (let i in manArr) {
+            if (this.x == manArr[i].x && this.y == manArr[i].y) {
+                manArr.splice(i, 1)
             }
         }
     }

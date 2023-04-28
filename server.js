@@ -124,13 +124,13 @@ function createobject() {
                                 badgrassArr.push(bgress)
                         }
                         else if (matrix[y][x] == 4) {
-                                let mones =  new Predator(x, y)
-                                predatorArr.push(mones)
+                                let preadator =  new Pretador(x, y)
+                                predatorArr.push(preadator)
                         }
-                        //   else if(matrix[y][x]==5){
+                          else if(matrix[y][x] == 5){
 
-                        //         manArr.push(new Man(x,y))
-                        //     }
+                                manArr.push(new Man(x,y))
+                            }
                         else if (matrix[y][x] == 6) {
                                   let watA = new Watergenerator(x, y)
                                 waterGenArr.push(watA)
@@ -157,7 +157,6 @@ function game() {
                 grassArr[i].mul()
         }
 
-
         for (let i in grassEaterArr) {
                 grassEaterArr[i].eat()
         }
@@ -183,4 +182,26 @@ function game() {
 }
 
 setInterval(game, 200)
+
+
+
+var statistics = {}
+
+setInterval(function (){
+
+statistics.grass=grassArr.length
+statistics.badgrass=badgrassArr.length
+statistics.predator=predatorArr.length
+statistics.grassEater=grassEaterArr.length
+statistics.watergenerator=waterGenArr.length
+statistics.water=waterArr.length
+statistics.man=manArr.length
+  
+fs.writeFile("statistics.json",JSON.stringify(statistics),function (){
+        console.log("log")
+})
+
+
+
+},1000)
 
