@@ -17,7 +17,7 @@ app.get('/', function (req, res) {
 
 server.listen(3000, function () {
 
-        console.log("server");
+        console.log("server is run");
 
 })
 
@@ -31,13 +31,13 @@ function matrixGenerator(matrixSize, grass, grassEater, badgrass, predator, man,
                 }
         }
 
-        // 1 -եր այսինքն խոտեր քցելու հատված մատռիքսում
+        // grass
         for (let i = 0; i < grass; i++) {
                 let x = Math.floor(Math.random() * matrixSize)
                 let y = Math.floor(Math.random() * matrixSize)
                 matrix[y][x] = 1
         }
-        //GrassEater 2
+        //GrassEater 
 
         for (let i = 0; i < grassEater; i++) {
                 let x = Math.floor(Math.random() * matrixSize)
@@ -50,7 +50,7 @@ function matrixGenerator(matrixSize, grass, grassEater, badgrass, predator, man,
                 let y = Math.floor(Math.random() * matrixSize)
                 matrix[y][x] = 3
 
-
+//preadator
         }
         for (let i = 0; i < predator; i++) {
                 let x = Math.floor(Math.random() * matrixSize)
@@ -123,10 +123,10 @@ function createobject() {
                                 let bgress = new Badgrass(x, y)
                                 badgrassArr.push(bgress)
                         }
-                        // else if (matrix[y][x] == 4) {
-                        //         let mones = new Predator(x, y)
-                        //         predatorArr.push(mones)
-                        // }
+                        else if (matrix[y][x] == 4) {
+                                let mones =  new Predator(x, y)
+                                predatorArr.push(mones)
+                        }
                         //   else if(matrix[y][x]==5){
 
                         //         manArr.push(new Man(x,y))
@@ -178,12 +178,9 @@ function game() {
                 waterArr[i].mool()
         }
 
-        
+        io.sockets.emit("send matrix", matrix)
 
 }
 
 setInterval(game, 200)
 
-
-
-io.sockets.emit("send matrix", matrix)
