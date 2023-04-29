@@ -5,6 +5,23 @@ var socket = io()
 
 var side = 30
 
+let weather1="winter"
+
+// function changer(){
+//         if(weather1 == "winter"){
+//             document.getElementById("wstyle").style.color = "#8d05e8";
+//         }
+//         else{
+//             document.getElementById("wstyle").style.color = "white";
+//         }
+//     }
+
+
+
+
+
+
+
 
 function setup() {
         createCanvas(20 * side, 20 * side)
@@ -74,45 +91,33 @@ function nkar(matrix) {
                 }
         }
 
-
-
-       
-
-
-          
-         
 }
 
-function Reload(){
-       window.location.reload()
-}
-function killAll(){
-  grassEaterArr=[]
-  grassArr=[]
-  manArr=[]
-  waterArr=[]
-  waterGenArr=[]
-  predatorArr=[]
-  badgrassArr=[]
 
-
-}
-function grassg(){
-
-        let grass = new Grass(newX,newY)
-        grassArr.push(grass)
-
-}
-function grassEatg(){
-
-        let grEat = new GrassEater(newX, newY)
-
-        grassEaterArr.push(grEat)
- 
-
-}
 
 
 
 socket.on('send matrix',nkar)  
 
+function killall(){
+        socket.emit('killall');
+        }
+        
+        function spawnGr(){
+            socket.emit('spawnGr');
+        }
+        
+        function spawnGrEater(){
+            socket.emit('spawnGrEater');
+        }
+        
+        // function spawnPr(){
+        //     socket.emit('spawnPr');
+        // }
+        // function killPr(){
+        //     socket.emit('killPr')
+        // }
+        function changeWeather(){
+            socket.emit('chWeather');
+        }
+        

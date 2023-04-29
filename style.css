@@ -1,17 +1,32 @@
 
-@keyframes am {
-    0%   {border-color: rgb(255, 208, 0);}
-    25%  {border-color: rgb(0, 255, 64);}
-    50%  {border-color: rgb(208, 255, 0);}
-    100% {border-color: rgb(27, 255, 95);}
-  }
+ @keyframes bo {
+   10% {background-color: rgb(39, 39, 39);     }
+   20%{background-color: rgb(255, 0, 0);}
+   30%{background-color: rgb(0, 68, 255);}
+   40%{background-color: rgb(255, 119, 8);}
+   50%{background-color: rgb(187, 15, 2);}
+   60%{background-color: rgb(0, 195, 255);}
+   70%{background-color: rgb(199, 96, 0);}
+   80%{background-color: rgb(70, 70, 70);}
+   90%{background-color: rgb(22, 21, 21);}
+   100%{background-image:url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTZFeocwwT-wQD_OqRVkkcRPyg08dBfsQWuw&usqp=CAU");}
+ }
   @keyframes an {
-    0%   {border-color: rgb(255, 208, 0);}
-    25%  {border-color: rgb(85, 255, 0);}
-    50%  {border-color: rgb(208, 255, 0);}
-    100% {border-color: rgb(8, 255, 24);}
+    0%   {border-color: rgb(255, 0, 0);}
+    25%  {border-color: rgb(0, 238, 255);}
+    50%  {border-color: rgb(255, 219, 12);}
+    100% {border-color: rgb(255, 8, 8);}
   }
 
+  @keyframes de {
+      0% {color: red;}
+      25%{color: blue;}
+      50%{color: orange;}
+      100%{color: red;}
+      
+
+
+  }
   canvas{
     margin-left: 30%;
     animation: infinite;
@@ -25,19 +40,21 @@
     
     canvas:hover{
        border-radius: 10px;
-       border-color: gold;
+       border-color: rgb(255, 255, 255);
        border-collapse: separate;
+    
     }
 
 
     body{
-        background-color:aqua;
-        background-size: cover;
+        background-color:rgb(0, 0, 0);
+        
     }
 
     button{
+      margin:2px;
         border-radius: 10px;
-       border: 3px solid rgb(255, 238, 0);
+       border: 3px solid rgb(255, 255, 255);
        width: 220px;
        height: 34px;
     }
@@ -46,7 +63,36 @@
      
     
     button:hover{
-    animation: am 4s ;
+    animation: an 4s ;
     
         
+    }
+
+
+   div{
+     
+      background-color:rgba(0, 0, 0, 0);
+      width: 220px;
+      text-transform:uppercase;
+      
+    }
+
+details{
+
+  color:white
+}
+
+    details:hover{
+   
+   animation: de 4s ;
+
+
+
+    }
+    body:hover{
+   animation: bo 10s infinite;
+ background-size: cover;
+
+
+
     }
