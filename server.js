@@ -15,7 +15,7 @@ app.get('/', function (req, res) {
 })
 
 
-server.listen(3000, function () {
+server.listen(3001, function () {
 
         console.log("server is run");
 
@@ -99,7 +99,7 @@ waterArr = []
 
 Grass = require("./grass")
 GrassEater = require("./grassEater")
-Pretador = require("./predator")
+Predator = require("./predator")
 Man = require("./man")
 Water = require("./water")
 Watergenerator = require("./watergenerater")
@@ -124,7 +124,7 @@ function createobject() {
                                 badgrassArr.push(bgress)
                         }
                         else if (matrix[y][x] == 4) {
-                                let preadator = new Pretador(x, y)
+                                let preadator = new Predator(x, y)
                                 predatorArr.push(preadator)
                         }
                         else if (matrix[y][x] == 5) {
@@ -243,10 +243,10 @@ function killall() {
 
 function spawnGr() {
         for (var y = 0; y < matrix.length; y++) {
-                for (var x = 0; x < matrix[y].length; x++) {
+                for (var x = 0; x < matrix.length; x++) {
                         if (matrix[y][x] == 0) {
                                 matrix[y][x] = 1
-                                grassArr.push(new Grass(x, y, 1))
+                                grassArr.push(new Grass(x, y))
                         }
                 }
         }
@@ -254,12 +254,12 @@ function spawnGr() {
 }
 
 function spawnGrEater() {
-        for (var i = 0; i < 15; i++) {
+        for (var i = 0; i < 5; i++) {
                 var x = Math.floor(Math.random() * matrix[0].length)
                 var y = Math.floor(Math.random() * matrix.length)
                 if (matrix[y][x] == 0 || matrix[y][x] == 1) {
                         matrix[y][x] = 2
-                        grassEaterArr.push(new GrassEater(x, y, 2));
+                        grassEaterArr.push(new GrassEater(x, y));
                 }
         }
         io.sockets.emit("send matrix", matrix);
@@ -268,20 +268,56 @@ function spawnPredator() {
         for (var i = 0; i < 15; i++) {
                 var x = Math.floor(Math.random() * matrix[0].length)
                 var y = Math.floor(Math.random() * matrix.length)
-                if (matrix[y][x] == 0 || matrix[y][x] == 1 || matrix[x][y]== 2 || matrix[x][y]== 3 || matrix[x][y]== 5 ) {
+                if (matrix[y][x] == 0 || matrix[y][x] == 1 || matrix[x][y] == 2 || matrix[x][y] == 3) {
                         matrix[y][x] = 4
-                        predatorArr.push(new Predator(x, y, 4));
+                        predatorArr.push(new Predator(x, y));
                 }
         }
         io.sockets.emit("send matrix", matrix);
 }
+// function killpredator(){
 
 
+//                 if (matrix[y][x] == 4) {
+//                         matrix[y][x] = 0
+//                         predatorArr.splice(i,1)
+//                 }
 
+//         io.sockets.emit("send matrix", matrix);
+// }
 
+function winter() {
+        waet = "winter"
+        io.sockets.emit('winter', weat)
+}
+function summer() {
+        weat = "summer"
+        io.sockets.emit('summer', weat)
+}
+function spring() {
+        weat = "spring"
+        io.sockets.emit('spring', weat)
 
+}
+function autumn() {
+        weat = "autumn"
+        io.sockets.emit('autumn', weat)
+}
 
+function spawnwater() { 
 
+        for (var i = 0; i < 15; i++) {
+                var x = Math.floor(Math.random() * matrix[0].length)
+                var y = Math.floor(Math.random() * matrix.length)
+                if (matrix[y][x] == 0 ) {
+                        matrix[y][x] = 7
+                        waterArr.push(new Water(x, y));
+                }
+        }
+        io.sockets.emit("send matrix", matrix);
+
+        
+}
 
 function changeWeather() {
         weat();
@@ -300,14 +336,20 @@ function alldatas() {
         // io.sockets.emit("send datas", countd)
 
 }
-setInterval(alldatas, 300);
+setInterval(alldatas, 100);
 
-setInterval(game, 300);
+setInterval(game, 100);
 io.on('connection', function (socket) {
         createobject(matrix);
         socket.on('killall', killall);
         socket.on('spawnGr', spawnGr);
         socket.on('spawnGrEater', spawnGrEater);
         socket.on('chWeather', changeWeather);
-        socket.on('spawnPr',spawnPredator)
+        socket.on('spawnPr', spawnPredator)
+        // socket.on('killpr',killpredator)
+        socket.on('spring', spring)
+        socket.on('summer', summer)
+        socket.on('autumn', autumn)
+        socket.on('winter', winter)
+        socket.on('spawnw',spawnwater)
 })
