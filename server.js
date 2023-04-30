@@ -15,7 +15,7 @@ app.get('/', function (req, res) {
 })
 
 
-server.listen(3001, function () {
+server.listen(3000, function () {
 
         console.log("server is run");
 
@@ -181,7 +181,7 @@ function game() {
 
 }
 
-// setInterval(game, 200)
+setInterval(game, 200)
 
 
 
@@ -208,21 +208,26 @@ function game() {
 
 
 
+var weath;
 
-
-let weathers = ["spring", "summer", "autumn", "winter"]
-
-let i = weathers.length - 1
-
-function weat() {
-        let weather
-        weather = weathers[i--]
-        if (i < 0) {
-                i = 3
-        }
-        io.sockets.emit('weather', weather)
+function winter() {
+        weath = "winter"
+        io.sockets.emit('winter', weath)
 }
-setInterval(weat, 7000)
+function summer() {
+        weath = "summer"
+        io.sockets.emit('summer', weath)
+}
+function spring() {
+        weath = "spring"
+        io.sockets.emit('spring', weath)
+
+}
+function autumn() {
+        weath = "autumn"
+        io.sockets.emit('autumn', weath)
+}
+
 
 
 function killall() {
@@ -286,23 +291,7 @@ function spawnPredator() {
 //         io.sockets.emit("send matrix", matrix);
 // }
 
-function winter() {
-        waet = "winter"
-        io.sockets.emit('winter', weat)
-}
-function summer() {
-        weat = "summer"
-        io.sockets.emit('summer', weat)
-}
-function spring() {
-        weat = "spring"
-        io.sockets.emit('spring', weat)
 
-}
-function autumn() {
-        weat = "autumn"
-        io.sockets.emit('autumn', weat)
-}
 
 function spawnwater() { 
 
@@ -319,37 +308,28 @@ function spawnwater() {
         
 }
 
-function changeWeather() {
-        weat();
-}
-function alldatas() {
-        countd = {
-                grass: grassArr.length,
-                grassEater: grassEaterArr.length,
-                predator: predatorArr.length,
-                man: manArr.length,
-                badgrass: badgrassArr.length
-        }
-        fs.writeFile("statistics.json", JSON.stringify(countd), function () {
-                io.sockets.emit("send datas", countd)
-        })
-        // io.sockets.emit("send datas", countd)
-
-}
-setInterval(alldatas, 100);
-
-setInterval(game, 100);
 io.on('connection', function (socket) {
-        createobject(matrix);
-        socket.on('killall', killall);
-        socket.on('spawnGr', spawnGr);
-        socket.on('spawnGrEater', spawnGrEater);
-        socket.on('chWeather', changeWeather);
-        socket.on('spawnPr', spawnPredator)
-        // socket.on('killpr',killpredator)
-        socket.on('spring', spring)
-        socket.on('summer', summer)
-        socket.on('autumn', autumn)
-        socket.on('winter', winter)
-        socket.on('spawnw',spawnwater)
-})
+        createobject();
+        socket.on("spring", spring);
+        socket.on("summer", summer);
+        socket.on("autumn", autumn);
+        socket.on("winter", winter);
+        socket.on("spawnGr", spawnGr);
+        socket.on("spawnGrEater", spawnGrEater);
+        socket.on("killall", killall);
+        socket.on("spawnw", spawnwater);
+        socket.on("spawnPr",spawnPredator);
+    })
+    
+    var statistics = {};
+    setInterval(function () {
+        statistics.grass = grassArr.length;
+        statistics.grassEater = grassEaterArr.length;
+        statistics.predator = predatorArr.length;
+        statistics.badgrass = badgrassArr.length;
+        statistics.man = manArr.length;
+        statistics.water = waterArr.length;
+        statistics.watergenerator = waterGenArr.length;
+        fs.writeFile("statistics.json", JSON.stringify(statistics), function () {
+        })
+    }, 1000);

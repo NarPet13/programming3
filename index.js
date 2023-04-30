@@ -1,13 +1,10 @@
-var a= document.getElementById("bu")
+// const image = document.querySelector("img")
+// input =document.querySelector("input")
 
 
+// input.addEventListener("change", ()=>{
 
-function buclick(){
-
-window.location.href="index.html"
-
-}
+//     image.src=URL.createObjectURL(input.files[0])
+// })
 
 
-
-var b = a.addEventListener("click",buclick)

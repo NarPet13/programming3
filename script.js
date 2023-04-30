@@ -6,35 +6,18 @@ var socket = io()
 var side = 30
 
 
-
-// function changer(){
-//         if(weather1 == "winter"){
-//             document.getElementById("wstyle").style.color = "#8d05e8";
-//         }
-//         else{
-//             document.getElementById("wstyle").style.color = "white";
-//         }
-//     }
-
-
-
-
-
-
-
-
 function setup() {
         createCanvas(20 * side, 20 * side)
-        socket.on("Winter", function (data) {
+        socket.on("winter", function (data) {
                 weath = data;
             })
-            socket.on("Summer", function (data) {
+            socket.on("summer", function (data) {
                 weath = data;
             })
-            socket.on("Spring", function (data) {
+            socket.on("spring", function (data) {
                 weath = data;
             })
-            socket.on("Autumn", function (data) {
+            socket.on("autumn", function (data) {
                 weath = data;
             })
 
@@ -46,46 +29,62 @@ function nkar(matrix) {
         for (let y = 0; y < matrix.length; y++) {
                 for (let x = 0; x < matrix[y].length; x++) {
 
-                        // var face = side - side * 0.1
-                        // textSize(face)
+                        
             
 
                         if (matrix[y][x] == 1) {
-                                fill("green")
+                                if(weath == "spring"){
+                                        fill("green")
+                                }
+                                else if(weath == "autumn"){
+                                        fill("yellow")
+                                }
+                                else if(weath=="summer"){
+
+                                        fill("darkgreen")
+
+                                }
+                                else if (weath=="winter"){
+                                        fill("white")
+                                }
                                 rect (x*side,y*side,side,side)
-                              if(weath=="spring"){
-                                fill("white")
-                              }
+                           
                         } else if(matrix[y][x] == 2){
-                                fill ("yellow")
+                                fill("yellow")
                                 rect (x*side,y*side,side,side)
-                                if(weath=="spring"){
-                                        fill("ligth-yellow")
-                                      }
+                               
                         }
                        else if(matrix[y][x]==3){
                  
                         fill("red")
                         rect (x*side,y*side,side,side)
-                        if(weath=="spring"){
-                                fill("green")
-                              }
-                       }
+                        
+                        }
+                       
                            else if(matrix[y][x]==4){
                               
+                                if(weath == "spring"){
+                                        fill("orange")
+                                }
+                                else if(weath == "autumn"){
+                                        fill("red")
+                                }
+                                else if(weath=="summer"){
+
                                         fill("black")
+
+                                }
+                                else if (weath=="winter"){
+                                        fill("yellow")
+                                }
                                         rect (x*side,y*side,side,side)  
-                                        if(weath=="spring"){
-                                                fill("orange")
-                                              }
+                
                            }
                            else if(matrix[y][x]==5){
                              
                                 fill("bisque")
                                 rect (x*side,y*side,side,side) 
-                                // if(weath=="spring"){
-                                //         fill("")
-                                //       }
+                                
                            }
                            else if(matrix[y][x]==6){
                              
@@ -134,33 +133,26 @@ function killall(){
         function spawnPr(){
                 socket.emit('spawnPr');
         }
-        function killpr(){
-
-                socket.emit('killpr')
-
-        }
-        function changeWeather(){
-            socket.emit('chWeather');
-        }
-        
         function spawnw(){
                 socket.emit('spawnw')
         }
         function winter() {
               
-                sockets.emit('winter')
+                socket.emit('winter')
         }
         function summer() {
                 
-                sockets.emit('summer')
+                socket.emit('summer')
         }
         function spring() {
                
-                sockets.emit('spring')
+                socket.emit('spring')
         
         }
         function autumn() {
                
-                sockets.emit('autumn')
+                socket.emit('autumn')
         }
-        
+
+
+       
